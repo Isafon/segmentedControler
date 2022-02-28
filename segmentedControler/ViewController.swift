@@ -21,18 +21,32 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     
 //Label: view picker
+    
     @IBOutlet weak var viewPickerLabel: UILabel!
     
     @IBOutlet weak var picker: UIPickerView!
     
-    let colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Purple"]
+    var colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Purple"]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        colors[row]
+
+    }
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        switch component {
+        return colors.count
+    }
+    
+    internal func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        view.endEditing(true)
+        
+        switch row {
+            
         case 0:
             viewPickerLabel.text = "Red"
         case 1:
@@ -48,21 +62,21 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         case 6:
             viewPickerLabel.text = "Purple"
             
-        default: break
+        default: viewPickerLabel.text = "None Selected"
             
         }
-        return colors.endIndex
+    
     }
 
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return colors[row]
-
-    }
+  
     
    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        
+        //PickerView:
         picker.dataSource = self
         picker.delegate = self
         

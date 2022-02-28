@@ -49,18 +49,25 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             
         case 0:
             viewPickerLabel.text = "Red"
+            viewPickerLabel.textColor = .red
         case 1:
             viewPickerLabel.text = "Orange"
+            viewPickerLabel.textColor = .orange
         case 2:
             viewPickerLabel.text = "Yellow"
+            viewPickerLabel.textColor = .yellow
         case 3:
             viewPickerLabel.text = "Green"
+            viewPickerLabel.textColor = .green
         case 4:
             viewPickerLabel.text = "Blue"
+            viewPickerLabel.textColor = .blue
         case 5:
             viewPickerLabel.text = "Indigo"
+            viewPickerLabel.textColor = .systemIndigo
         case 6:
             viewPickerLabel.text = "Purple"
+            viewPickerLabel.textColor = .purple
             
         default: viewPickerLabel.text = "None Selected"
             
